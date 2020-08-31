@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="items_configuration_corporation">
+        <item>성남 / 개인 / 5 / 1 / 58.180.28.213 / 3000 / 58.180.28.213 / 8090</item> <!-- / 0317554000-->
+        <item>성남 / 법인 / 6 / 11 / 58.180.28.207 / 3000 / 58.180.28.207 / 8090</item> <!-- / 0317217000-->
+        <item>순천 /  / 7 / 1 / 14.48.114.122 / 3000 / 14.48.114.122 / 8090</item>
+        <item>하남 / 개인 / 11 / 1 / 58.180.28.208 / 3000 / 58.180.28.208 / 8090</item> <!-- / 0317914114-->
+        <item>하남 / 법인 / 12 / 11 / 58.180.28.215 / 3000 / 58.180.28.215 / 8090</item> <!-- / 0317914114-->
+        <item>광주 /  / 3/ 1 / 58.180.28.216 / 3000 / 58.180.28.216 / 8090</item>
+    </string-array>
+
+    <!-- 손님에게 메시지 -->
+    <string-array name="items_messages_list">
+        <item>@string/msg_9min</item>
+        <item>@string/msg_7min</item>
+        <item>@string/msg_5min</item>
+        <item>@string/msg_soon</item>
+        <item>@string/msg_arrival</item>
+    </string-array>
+
+    <!-- 취소 사유 -->
+    <string-array name="items_alloc_cancel_reason">
+        <item>@string/alloc_cancel_reason_passenger</item>
+        <item>@string/alloc_cancel_reason_no_show</item>
+        <item>@string/alloc_cancel_reason_using_other_car</item>
+        <item>@string/alloc_cancel_reason_etc</item>
+    </string-array>
+
+</resources>

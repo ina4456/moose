@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    tools:context=".view.LoginActivity">
+
+    <Button
+        android:id="@+id/login_btn_call_center"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="38dp"
+        android:visibility="gone"
+        android:background="@drawable/selector_btn_call_center"
+        app:layout_constraintEnd_toStartOf="@+id/login_iv_bi"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/login_iv_bi"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/login_bi_img_height"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/bi_img"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn_login"
+        app:layout_constraintStart_toStartOf="@+id/login_btn_login"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/login_btn_setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/selector_btn_configuration"
+        app:layout_constraintStart_toEndOf="@+id/login_iv_bi"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_dot_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bi_dot"
+        app:layout_constraintBottom_toBottomOf="@+id/login_tv_site_name"
+        app:layout_constraintEnd_toStartOf="@+id/login_tv_site_name"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="@+id/login_btn_login"
+        app:layout_constraintTop_toTopOf="@+id/login_tv_site_name" />
+
+    <TextView
+        android:id="@+id/login_tv_site_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:maxWidth="304dp"
+        android:text="@string/app_name"
+        android:textColor="@color/colorMainGold"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/iv_dot_right"
+        app:layout_constraintStart_toEndOf="@+id/iv_dot_left"
+        app:layout_constraintTop_toBottomOf="@+id/login_iv_bi" />
+
+    <ImageView
+        android:id="@+id/iv_dot_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bi_dot"
+        app:layout_constraintBottom_toBottomOf="@+id/login_tv_site_name"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn_login"
+        app:layout_constraintStart_toEndOf="@+id/login_tv_site_name"
+        app:layout_constraintTop_toTopOf="@+id/login_tv_site_name" />
+
+    <com.insoline.pnd.view.custom.LetterSpacingTextView
+        android:id="@+id/login_tv_phone_number"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/selector_tv_mobile_num_bg"
+        android:clickable="false"
+        android:gravity="center"
+        android:hint="@string/login_edit_text_hint"
+        android:longClickable="false"
+        android:textColor="@color/selector_tc_mobile_num"
+        android:textColorHint="#737373"
+        android:textSize="36dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/login_btn_login"
+        app:layout_constraintEnd_toEndOf="@+id/login_btn_login"
+        app:layout_constraintStart_toStartOf="@+id/login_btn_login" />
+    <!--    android:text="@{viewModel.displayPhoneNumber}"-->
+
+    <Button
+        android:id="@+id/login_btn_login"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="36dp"
+        android:background="@drawable/selector_bg_login_btn"
+        android:enabled="false"
+        android:text="@string/login_btn_login"
+        android:textColor="@color/selector_tc_common_black_yel09"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_vertical"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--정렬 기준-->
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/login_guide_begin" />
+
+    <!--넘버패드-->
+    <com.insoline.pnd.view.custom.NumberPadView
+        android:id="@+id/login_number_pad_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="38dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl_vertical"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    android:layout_marginTop="38dp"-->
+    <!--    android:layout_marginBottom="36dp"-->
+
+    <TextView
+        android:id="@+id/tv_app_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorYellow"
+        android:textSize="14dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Ver:400" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

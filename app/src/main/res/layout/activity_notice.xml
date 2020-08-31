@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f0f0f">
+
+    <TextView
+        android:id="@+id/notice_title"
+        style="@style/MainTitle"
+        android:layout_alignParentTop="true"
+        android:text="@string/main_menu_notice" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notice_list_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/notice_title"
+        android:gravity="top|start"
+        android:paddingStart="24dp"
+        android:paddingTop="13dp"
+        android:paddingEnd="24dp"
+        android:paddingBottom="24dp"
+        android:visibility="gone"
+        tools:listitem="@layout/item_notice_list" />
+
+    <TextView
+        android:id="@+id/notice_empty_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/notice_title"
+        android:gravity="center"
+        android:text="@string/notice_empty"
+        android:textColor="#dab668"
+        android:textSize="40dp"
+        android:visibility="visible" />
+
+</RelativeLayout>

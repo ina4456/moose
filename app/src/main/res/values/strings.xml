@@ -1,0 +1,333 @@
+<resources>
+    <string name="app_name">인솔라인</string>
+
+    <!--Popup-->
+    <string name="popup_title_alert">알림</string>
+    <string name="popup_msg_login">인증 하였습니다.</string>
+    <string name="popup_msg_logout">로그아웃 하시겠습니까?</string>
+    <string name="popup_msg_login_failed">인증에 실패하였습니다.\n다시 시도해 주십시오.</string>
+    <string name="popup_msg_login_failed_wrong_input">정확한 휴대폰 번호를 입력해 주십시오.</string>
+    <string name="popup_msg_login_failed_service_disabled">입력하신 번호는 서비스 이용이 불가합니다.\n확인 후 다시 시도해 주십시오.</string>
+    <string name="popup_msg_login_failed_network_disconnected">서버 접속에 실패 하였습니다.\n확인 후 다시 시도해 주십시오.</string>
+    <string name="popup_msg_login_failed_not_reg_driver">등록되지 않은 휴대폰 번호입니다.</string>
+    <string name="popup_msg_login_failed_not_reg_car">등록되지 않은 차량입니다.</string>
+    <string name="popup_msg_config_not_installed_error">어플리케이션 구동에 필요한 External Device가 설치되지 않았습니다. 관리자에게 문의하세요.</string>
+    <string name="popup_msg_config_should_be_set_all">[서버 IP], [서버 PORT], [차량 번호] 항목을 설정하셔야 인증 및 서비스 이용이 가능합니다.</string>
+    <string name="popup_msg_config_needed_rebooting">설정값 적용을 위해 단말기를 \n재 부팅합니다.</string>
+    <string name="popup_msg_config_needed_restart">설정값 적용을 위해 어플리케이션을 \n재 시작합니다.</string>
+    <string name="popup_msg_config_data_changed">설정 파일을 통해 설정값을 불러왔습니다.</string>
+    <string name="popup_msg_invalid_car_number">정확한 차량번호를 입력해 주세요.\n(ex: 경기32바1234)</string>
+    <string name="popup_msg_invalid_car_number_s">정확한 차량번호를 입력해 주세요.\n(ex: 1234)</string>
+    <string name="popup_msg_invalid_server_ip">서버 IP를 입력해 주세요.</string>
+    <string name="popup_msg_invalid_server_port">서버 PORT를 입력해 주세요.</string>
+    <string name="popup_msg_invalid_api_server_ip">API 서버 IP를 입력해 주세요.</string>
+    <string name="popup_msg_invalid_api_server_port">API 서버 PORT를 입력해 주세요.</string>
+    <string name="popup_msg_allocation_failed">배차에 실패하였습니다.</string>
+    <string name="popup_msg_routing_departure">배차되었습니다.\n손님이 계신 곳으로 길안내를 시작합니다.</string>
+    <string name="popup_msg_routing_destination">목적지로 길안내를 시작합니다.</string>
+    <string name="toast_msg_failed_call">전화 연결에 실패하였습니다.\n [전화연결] 어플리케이션이 설치되어 있지 않습니다.</string>
+
+    <string name="popup_msg_logout_while_boarded">현재 손님이 탑승 중입니다.\n하차 상태로 변경하고 %s하시겠습니까?</string>
+    <string name="popup_msg_logout_while_allocated">현재 배차 상태입니다.\n %s 하시려면 먼저 운행을 취소해 주세요.</string>
+
+    <string name="popup_btn_confirm">확인</string>
+    <string name="popup_btn_no">아니오</string>
+    <string name="popup_btn_yes">예</string>
+    <string name="popup_btn_cancel">취소</string>
+    <string name="popup_btn_logout">로그아웃</string>
+    <string name="popup_btn_dismiss_second">%1$s (%2$s초)</string>
+    <string name="popup_btn_back">돌아가기</string>
+    <string name="popup_btn_modify">수정</string>
+
+
+    <!--Login-->
+    <string name="login_btn_login">인증하기</string>
+    <string name="login_edit_text_hint"><font size="28">휴대폰 번호를 입력해 주세요.</font></string>
+
+    <string name="login_loading_msg_waiting_connection">모뎀 연결 대기 중...</string>
+    <string name="login_loading_msg_connecting">접속 중...</string>
+    <string name="login_loading_msg_logging">로그인 중...</string>
+
+    <!--Configuration-->
+    <string name="configuration_main_title">환경설정</string>
+    <string name="configuration_item_hint">입력해 주세요.</string>
+    <string name="configuration_item_hint_select">선택해 주세요.</string>
+    <string name="configuration_item_hint_vehicle_number">공백 없이 입력 (예 : 경기32바1234)</string>
+    <string name="configuration_item_hint_vehicle_number_s">공백 없이 입력 (예 : 1234)</string>
+    <string name="configuration_item_hint_tachometer_test">미터기 연동 및 조작 시 값 표시</string>
+    <string name="configuration_item_hint_vacancy_light_test">빈차등 연동 및 조작 시 값 표시</string>
+    <string name="configuration_item_hint_market_code">향지코드 확인 불가</string>
+    <string name="configuration_item_hint_modem_number">모뎀 번호 확인 불가</string>
+    <string name="configuration_admin_password">관리자 암호 입력</string>
+    <string name="configuration_debug_admin_password">디버깅 관리자 암호 입력</string>
+
+    <string name="configuration_group_vehicle">차량 설정</string>
+    <string name="configuration_group_external_device">차량 장치 설정</string>
+    <string name="configuration_group_service">서비스 설정</string>
+    <string name="configuration_group_network">네트워크 설정</string>
+    <string-array name="items_configuration_group">
+        <item>@string/configuration_group_vehicle</item>
+        <item>@string/configuration_group_external_device</item>
+        <item>@string/configuration_group_service</item>
+        <item>@string/configuration_group_network</item>
+    </string-array>
+
+    <string name="configuration_vehicle_operation_area">운행 지역</string>
+    <string name="configuration_vehicle_corporation">택시 종류</string>
+    <string name="configuration_vehicle_corporation_code">회사 코드</string>
+    <string name="configuration_vehicle_service_num">서비스 번호</string>
+    <string name="configuration_vehicle_number">차량 번호</string>
+    <string name="configuration_vehicle_corporation_corp">법인</string>
+    <string name="configuration_vehicle_corporation_individual">개인</string>
+    <string-array name="items_configuration_vehicle_corporation">
+        <item>@string/configuration_vehicle_corporation_corp</item>
+        <item>@string/configuration_vehicle_corporation_individual</item>
+    </string-array>
+
+    <string name="configuration_external_device_rb_uart">UART</string>
+    <string name="configuration_external_device_rb_ep100">EP-100</string>
+    <string name="configuration_external_device_rb_tachometer">미터기</string>
+    <string name="configuration_external_device_rb_vacancy_light">빈차등</string>
+    <string name="configuration_external_device_vacancy_light_yn">빈차등 사용</string>
+    <string name="configuration_external_device_tachometer">미터기 종류</string>
+    <string name="configuration_external_device_connection">연동 방법</string>
+    <string name="configuration_external_device_tachometer_signal_by">미터기 신호</string>
+    <string name="configuration_external_device_tachometer_test">미터기 값</string>
+    <string name="configuration_external_device_test_current">현재값</string>
+    <string name="configuration_external_device_test_reset">초기화</string>
+    <string name="configuration_external_device_vacancy_light_test">빈차등 값</string>
+    <string name="configuration_external_device_vacancy_light_vacancy">빈차</string>
+    <string name="configuration_external_device_vacancy_light_reservation">예약</string>
+    <string name="configuration_external_device_modem">모뎀 종류</string>
+    <string name="configuration_external_device_fare_alert">요금 표시</string>
+
+    <string name="configuration_external_device_connect">연동</string>
+    <string name="configuration_external_device_disconnect">미연동</string>
+    <string-array name="items_external_device_connection">
+        <item>@string/configuration_external_device_connect</item>
+        <item>@string/configuration_external_device_disconnect</item>
+    </string-array>
+
+    <string name="configuration_server_ip_idc">211.215.18.168</string>
+    <string name="configuration_server_ip_dev">61.33.249.219</string>
+    <string name="configuration_server_ip_ts">115.95.16.158</string>
+    <string name="configuration_use_local_login">로컬 로그인</string>
+
+    <string name="configuration_external_device_tachometer_kumho">금호</string>
+    <string name="configuration_external_device_tachometer_hankuk">한국</string>
+    <string name="configuration_external_device_tachometer_gwanshin">광신</string>
+    <string name="configuration_external_device_tachometer_alpha_m">알파엠</string>
+    <string name="configuration_external_device_tachometer_tims">TIMS</string>
+    <string name="configuration_external_device_tachometer_jungang">중앙</string>
+    <string name="configuration_external_device_tachometer_seoul_dtg">서울통합DTG</string>
+    <string-array name="items_tachometer_type">
+        <item>@string/configuration_external_device_tachometer_kumho</item>
+        <item>@string/configuration_external_device_tachometer_hankuk</item>
+        <item>@string/configuration_external_device_tachometer_gwanshin</item>
+        <item>@string/configuration_external_device_tachometer_alpha_m</item>
+        <item>@string/configuration_external_device_tachometer_tims</item>
+        <item>@string/configuration_external_device_tachometer_jungang</item>
+        <item>@string/configuration_external_device_tachometer_seoul_dtg</item>
+    </string-array>
+
+    <string name="configuration_service_code">향지 코드</string>
+    <string name="configuration_service_server_ip">서버 IP</string>
+    <string name="configuration_service_server_port">서버 PORT</string>
+    <string name="configuration_service_app_version">앱 버젼</string>
+    <string name="configuration_service_build_version">빌드 버젼</string>
+    <string name="configuration_service_modem_number">모뎀 번호</string>
+    <string name="app_version">Ver:%d</string>
+
+    <string name="configuration_network_wifi">Wi-Fi</string>
+    <string name="configuration_network_bluetooth">블루투스</string>
+
+    <string name="configuration_server_info">서버 접속정보</string>
+    <string name="configuration_api_server_info">API서버 접속정보</string>
+    <string name="configuration_api_server_ip">API서버 IP</string>
+    <string name="configuration_api_server_port">API서버 PORT</string>
+    <string name="configuration_pst">주기</string>
+    <string name="configuration_psd">주기거리</string>
+    <string name="configuration_rc">모바일</string>
+    <string name="configuration_rt">라이브</string>
+    <string name="configuration_cvt">콜방송</string>
+    <string name="configuration_ls">로그</string>
+
+    <!--Notice & Message-->
+    <string name="notice_empty">공지사항이 없습니다.</string>
+    <string name="message_empty">메시지가 없습니다.</string>
+    <string name="waiting_call_empty">대기중인 콜이 없습니다.</string>
+    <string name="my_info_load_failed">내 정보를 불러 올 수 없습니다.</string>
+
+    <!--Main-->
+    <string name="main_menu">메뉴</string>
+    <string name="main_menu_notice">공지사항</string>
+    <string name="main_menu_message">콜센터 메시지</string>
+    <string name="main_menu_history">운행이력</string>
+    <string name="main_menu_history_detail">운행이력 상세</string>
+    <string name="main_menu_stand_by_call">콜 목록</string>
+    <string name="main_menu_logout">로그아웃</string>
+
+
+    <string name="main_status_text_vacancy">콜 대기중</string>
+    <string name="main_status_text_boarded">손님 탑승중</string>
+    <string name="main_status_text_resting">휴식중</string>
+    <string name="main_status_text_resting_sub">콜을 받지 않습니다.</string>
+    <string name="main_state_waiting_msg">\[%s\] 대기중</string>
+
+    <string name="main_status_btn_vacancy">빈차</string>
+    <string name="main_status_btn_boarding">손님승차</string>
+    <string name="main_status_btn_alighting">손님하차</string>
+    <string name="main_status_btn_boarding_s">탑승</string>
+    <string name="main_status_btn_alighting_s">하차</string>
+    <string name="main_status_btn_resting">휴식하기</string>
+    <string name="main_status_btn_receiving_call">콜 받기</string>
+    <string name="main_btn_waiting_zone">대기장소</string>
+    <string name="main_btn_find_path_destination">경로탐색</string>
+
+    <!--Waiting Zone-->
+    <string name="waiting_zone_main_title">대기장소</string>
+    <string name="waiting_zone_btn_request_wait">대기요청</string>
+    <string name="waiting_zone_btn_selection">대기장소 선택</string>
+    <string name="waiting_zone_selection_none">선택 안 함</string>
+    <string name="waiting_zone_empty">대기장소가 없습니다.</string>기
+    <string name="wz_msg_exit_waiting_zone">차량 위치가 변경되어 설정된 대기장소를 해제합니다.</string>
+    <string name="wz_msg_request_failed">대기 요청에 실패하였습니다.</string>
+    <string name="wz_msg_cancel_failed">대기 취소에 실패하였습니다.</string>
+    <string name="waiting_zone_impossible_selection">선택 가능한 대기장소가 없습니다.</string>
+    <string name="wz_btn_waiting_count">%d대</string>
+    <string name="wz_btn_waiting_and_order_count">%1$d대 중 %2$d번째</string>
+    <string name="waiting_zone_count_def">0대</string>
+
+    <!--CallHistory-Allocation-->
+    <string name="allocation_text_departure">출발지</string>
+    <string name="allocation_text_destination">목적지</string>
+    <string name="allocation_text_passenger_location">손님위치</string>
+    <string name="allocation_text_empty_departure">출발지 정보 없음</string>
+    <string name="allocation_text_empty_destination">목적지 정보 없음</string>
+
+    <string name="allocation_btn_refuse">거절</string>
+    <string name="allocation_btn_refuse_with_count"><![CDATA[거절 <font color=\'#ffffff\'>%d</font>]]></string>
+    <string name="allocation_btn_request">배차요청</string>
+    <string name="allocation_btn_call_passenger">전화</string>
+    <string name="allocation_btn_boarding_failure">탑승실패</string>
+    <string name="allocation_btn_find_path">경로탐색</string>
+    <string name="allocation_btn_complete_failure">하차 요청 실패</string>
+    <string name="allocation_btn_complete_failure_msg">요청이 실패하였습니다. 다시 시도해 주세요.</string>
+    <string name="alloc_msg_complete">기사님 고생하셨습니다.\n콜 대기 화면으로 이동합니다.</string>
+    <string name="alloc_msg_failed_call">배차에 실패하였습니다.\n콜 대기 화면으로 이동합니다.</string>
+
+
+    <string name="allocation_here">여기서</string>
+    <string name="allocation_status_receiving">콜 수신</string>
+    <string name="allocation_status_waiting">배차 대기 중</string>
+    <string name="allocation_status_allocated">배차 완료</string>
+    <string name="allocation_status_boarded">탑승 완료</string>
+
+    <string name="alloc_cancel_reason_passenger">손님이 취소</string>
+    <string name="alloc_cancel_reason_no_show">손님과 통화 불가</string>
+    <string name="alloc_cancel_reason_using_other_car">손님이 다른 차량 이용</string>
+    <string name="alloc_cancel_reason_etc">기타 영업 장애</string>
+
+    <string name="allocation_send_message">메시지 전송</string>
+    <string name="msg_send_succeed">메시지를 전송하였습니다.</string>
+    <string name="msg_send_failure">메시지 전송에 실패하였습니다.</string>
+    <string name="msg_9min"><![CDATA[<font color=\'#dcb969\'>9</font>분 이내로 도착합니다.]]></string>
+    <string name="msg_7min"><![CDATA[<font color=\'#dcb969\'>7</font>분 이내로 도착합니다.]]></string>
+    <string name="msg_5min"><![CDATA[<font color=\'#dcb969\'>5</font>분 이내로 도착합니다.]]></string>
+    <string name="msg_soon"><![CDATA[잠시 후 도착합니다.\n차량번호는 <font color=\'#dcb969\'>%s</font> 입니다.]]></string>
+    <string name="msg_arrival"><![CDATA[도착했습니다.\n차량번호는 <font color=\'#dcb969\'>%s</font> 입니다.]]></string>
+
+
+
+    <!--Operating History-->
+    <string name="history_today">오늘</string>
+    <string name="history_week">최근 7일</string>
+    <string name="history_this_month">이번달</string>
+    <string name="history_last_month">지난달</string>
+    <string name="history_day">%d일</string>
+    <string name="history_count">%d건</string>
+    <string name="history_complete">완료</string>
+    <string name="history_cancel">취소</string>
+    <string name="history_empty">운행이력이 없습니다.</string>
+    <string name="history_working_days">영업</string>
+    <string name="history_run_count">운행</string>
+    <string name="history_total_count">총</string>
+    <string name="history_count_end_fix">건</string>
+    <string name="history_normal">일반콜</string>
+    <string name="history_app">앱 콜</string>
+
+    <string name="history_count_def">0건</string>
+    <string name="history_day_def">0일</string>
+    <string name="history_call_to_passenger">손님에게\n전화</string>
+    <string name="history_call_type_all">전체</string>
+    <string name="history_call_type_normal">일반콜</string>
+    <string name="history_call_type_business">업무콜</string>
+    <string name="history_call_type_app">앱콜</string>
+
+    <!--메뉴-->
+    <string name="d_menu_driver_name">%s 기사님</string>
+    <string name="d_menu_my_info">내 정보</string>
+    <string name="d_menu_notice">공지사항</string>
+    <string name="d_menu_call_center_msg">콜센터 메시지</string>
+    <string name="d_menu_call_history">운행이력</string>
+    <string name="d_menu_setting">환경설정</string>
+    <string name="d_menu_call_center_call">콜센터</string>
+
+    <!--개인설정-->
+    <string name="setting_auto_routing_to_passenger">배차 완료 시 손님 위치로 자동 길안내</string>
+    <string name="setting_auto_routing_to_destination">손님 탑승 시 목적지로 자동 길안내</string>
+    <string name="setting_floating_btn">단축 버튼</string>
+    <string name="setting_floating_btn_msg">다른 앱을 사용하는 동안에도\n콜 관련 버튼을 표시합니다.</string>
+    <string name="setting_floating_btn_not_use">사용안함</string>
+    <string name="setting_floating_btn_using_all">모두 사용</string>
+    <string name="setting_floating_btn_boarding_alighting">탑승/하차</string>
+    <string name="setting_floating_btn_entering_main">앱 바로가기</string>
+    <string name="setting_floating_btn_entering_main_short">앱</string>
+    <string name="setting_floating_btn_call">전화</string>
+    <string-array name="setting_floating_btn_list">
+        <item>@string/setting_floating_btn_boarding_alighting</item>
+        <item>@string/setting_floating_btn_entering_main</item>
+        <item>@string/setting_floating_btn_call</item>
+    </string-array>
+    <string name="setting_service_info">서비스 정보</string>
+    <string name="setting_service_info_app_version">앱 버전</string>
+    <string name="setting_service_info_url">접속 서버 및 포트 정보</string>
+    <string name="setting_service_info_call_center">콜센터 정보</string>
+    <string-array name="setting_service_info_list">
+        <item>@string/setting_service_info_app_version</item>
+        <item>@string/setting_service_info_url</item>
+        <item>@string/setting_service_info_call_center</item>
+    </string-array>
+
+    <!--대기콜-->
+    <string name="waiting_call_list_btn_request">배차요청</string>
+
+
+    <!--내정보-->
+    <string name="my_info_name">이름</string>
+    <string name="my_info_phone_number">기사번호</string>
+    <string name="my_info_company">소속회사</string>
+    <string name="my_info_business_area">영업지역</string>
+    <string name="my_info_vehicle_number">차량번호</string>
+    <string name="my_info_vehicle_model">차량모델</string>
+    <string name="my_info_vehicle_color">차량색상</string>
+
+
+    <!-- 인증 실패 -->
+    <string name="fail_cert">인증실패</string>
+    <string name="fail_car">등록되지 않은 차량입니다.</string>
+    <string name="fail_phone_number">등록되지 않은 전화번호입니다.</string>
+    <string name="fail_no_response">서버 응답이 없습니다.</string>
+    <string name="fail_panelty">기사패널티 인증실패!</string>
+    <string name="fail_vacation">휴무 조 인증실패!</string>
+    <string name="fail_meter_device">미터기 서비스 초기화실패</string>
+    <string name="fail_vacancy_device">빈차등 서비스 초기화실패</string>
+    <string name="fail_emergency_device">Emergency 서비스 초기화실패</string>
+    <string name="fail_modem_number">모뎀 번호 가져오기 실패</string>
+
+    <string name="fail_permissions">권한 인증</string>
+    <string name="popup_msg_permissions_error">서비스 이용을 위해 필수적으로\n권한 허용이 필요합니다.</string>
+
+    <string name="boarding_or_reservation">배차 예약 또는 탑승상태입니다.</string>
+
+</resources>

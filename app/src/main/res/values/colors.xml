@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#000000</color>
+    <color name="colorPrimaryDark">#000000</color>
+    <color name="colorAccent">#dab668</color>
+    <color name="colorBlack">#000000</color>
+
+    <color name="colorMainGold">#dab668</color>
+    <color name="colorMainGoldOpac10">#1ADAB668</color>
+    <color name="colorStatusVacancyString">#828282</color>
+    <color name="colorStatusBoardingString">#4777a4</color>
+    <color name="colorStatusRestingString">#7e9856</color>
+    <color name="colorDivider">#666666</color>
+
+    <drawable name="drawable_3a3a3a">#3a3a3a</drawable>
+    <drawable name="drawable_7f3a3a3a">#7f3a3a3a</drawable>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite2">#dddddd</color>
+    <color name="colorWhite10">#1Affffff</color>
+    <color name="colorWhite20">#33ffffff</color>
+    <color name="colorWhite30">#4Dffffff</color>
+    <color name="colorWhite40">#66ffffff</color>
+    <color name="colorWhite50">#80ffffff</color>
+    <color name="colorWhite60">#99ffffff</color>
+    <color name="colorWhite70">#B3ffffff</color>
+    <color name="colorWhite80">#CCffffff</color>
+    <color name="colorWhite90">#E6ffffff</color>
+
+    <color name="colorGray01">#e6e6e6</color>
+    <color name="colorGray02">#cccccc</color>
+    <color name="colorGray03">#b3b3b3</color>
+    <color name="colorGray04">#999999</color>
+    <color name="colorGray05">#808080</color>
+    <color name="colorGray06">#666666</color>
+    <color name="colorGray07">#4d4d4d</color>
+    <color name="colorGray08">#404040</color>
+    <color name="colorGray09">#333333</color>
+    <color name="colorGray10">#2e2e2e</color>
+    <color name="colorGray11">#232323</color>
+    <color name="colorGray12">#1a1a1a</color>
+    <color name="colorGray13">#dddddd</color>
+    <color name="colorGray14">#b2b2b2</color>
+    <color name="colorGray15">#b6b6b6</color>
+    <color name="colorGray16">#161616</color>
+    <color name="colorGray17">#151515</color>
+    <color name="colorGray18">#1f2225</color>
+
+
+    <color name="colorYellow">#dcb969</color>
+    <color name="colorYellow01">#b09454</color>
+    <color name="colorYellow02">#5a4b28</color>
+    <color name="colorYellow03">#3c2d0a</color>
+    <color name="colorYellow04">#4a433d</color>
+    <color name="colorYellow05">#564d44</color>
+    <color name="colorYellow06">#5a4e48</color>
+    <color name="colorYellow07">#4a423f</color>
+    <color name="colorYellow08">#494949</color>
+    <color name="colorYellow09">#7b673b</color>
+
+    <color name="colorChPressed">#282828</color>
+
+    <color name="colorGreen01">#8cbe5a</color>
+    <color name="colorGreen02">#32c887</color>
+
+    <color name="colorBlue01">#5a87be</color>
+    <color name="colorRed2">#e15f2d</color>
+</resources>

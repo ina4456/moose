@@ -1,0 +1,692 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    tools:context=".view.ConfigActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/MainTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="@string/configuration_main_title" />
+
+            <TextView
+                android:id="@+id/tvAppVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center_vertical"
+                android:textColor="@color/colorYellow"
+                android:textSize="14dp"
+                android:padding="10dp"
+                android:layout_marginRight="20dp"
+                android:text="Ver:400" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="3dp"
+            android:background="@color/colorDivider" />
+
+        <ScrollView
+            android:id="@+id/sv_my_info"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="60dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:orientation="vertical">
+
+                    <!-- 서비스 번호 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvServiceNum"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_vehicle_service_num" />
+
+                        <EditText
+                            android:id="@+id/etServiceNum"
+                            style="@style/ConfigurationDetailTextView"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="5" />
+
+                    </LinearLayout>
+
+                    <!-- 택시 종류 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCorporation"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_vehicle_corporation" />
+
+                        <RadioGroup
+                            android:id="@+id/rgCorporation"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rbCorporationIndividual"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:button="@drawable/selector_btn_popup_radio_btn"
+                                android:text="@string/configuration_vehicle_corporation_individual"
+                                android:textColor="@color/selector_tc_configuration_edit_text"
+                                android:textSize="20dp" />
+
+                            <RadioButton
+                                android:id="@+id/rbCorporationCorp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:button="@drawable/selector_btn_popup_radio_btn"
+                                android:checked="true"
+                                android:text="@string/configuration_vehicle_corporation_corp"
+                                android:textColor="@color/selector_tc_configuration_edit_text"
+                                android:textSize="20dp" />
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+                    <!-- 회사 코드 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCorporationCode"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_vehicle_corporation_code" />
+
+                        <EditText
+                            android:id="@+id/etCorporationCode"
+                            style="@style/ConfigurationDetailTextView"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="10" />
+
+                    </LinearLayout>
+
+                    <!-- 차량 번호 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvCarNum"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_vehicle_number" />
+
+                        <EditText
+                            android:id="@+id/etCarNum"
+                            style="@style/ConfigurationDetailTextView"
+                            android:layout_weight="1"
+                            android:inputType="number"
+                            android:text="2580" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/colorDivider" />
+
+                    <!-- 기타 정보 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- PST -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPst"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="18dp"
+                                    android:text="@string/configuration_pst" />
+
+                                <EditText
+                                    android:id="@+id/etPst"
+                                    style="@style/ConfigurationDetailTextView"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="20" />
+                            </LinearLayout>
+
+                            <!-- PSD -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvPsd"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="15dp"
+                                    android:text="@string/configuration_psd" />
+
+                                <EditText
+                                    android:id="@+id/etPsd"
+                                    style="@style/ConfigurationDetailTextView"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="3000" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <!-- RC -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvRc"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="18dp"
+                                    android:text="@string/configuration_rc" />
+
+                                <EditText
+                                    android:id="@+id/etRc"
+                                    style="@style/ConfigurationDetailTextView"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="7" />
+                            </LinearLayout>
+
+                            <!-- RT -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvRt"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="18dp"
+                                    android:text="@string/configuration_rt" />
+
+                                <EditText
+                                    android:id="@+id/etRt"
+                                    style="@style/ConfigurationDetailTextView"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="9" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <!-- CVT -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvCvt"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="18dp"
+                                    android:text="@string/configuration_cvt" />
+
+                                <EditText
+                                    android:id="@+id/etCvt"
+                                    style="@style/ConfigurationDetailTextView"
+                                    android:layout_weight="1"
+                                    android:inputType="number"
+                                    android:text="6" />
+                            </LinearLayout>
+
+                            <!-- LS -->
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="0dp"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/tvLs"
+                                    style="@style/ConfigurationLabelTextView"
+                                    android:layout_weight="1"
+                                    android:textSize="18dp"
+                                    android:text="@string/configuration_ls" />
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="40dp"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <ToggleButton
+                                        android:id="@+id/btnLs"
+                                        android:layout_width="60dp"
+                                        android:layout_height="40dp"
+                                        android:textOff="N"
+                                        android:textOn="Y" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@color/colorDivider" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <!-- 서버 정보 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvServer"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="2"
+                            android:text="@string/configuration_server_info" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textSize="22dp">
+
+                            <EditText
+                                android:id="@+id/etServerIP"
+                                style="@style/ConfigurationDetailTextView2"
+                                android:layout_width="180dp"
+                                android:text="58.180.28.217" />
+
+                            <EditText
+                                android:id="@+id/etServerPort"
+                                style="@style/ConfigurationDetailTextView2"
+                                android:layout_width="70dp"
+                                android:layout_marginLeft="10dp"
+                                android:inputType="number"
+                                android:text="3000" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- API 서버 정보 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvApiServer"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="2"
+                            android:text="@string/configuration_api_server_info" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal"
+                            android:paddingStart="5dp"
+                            android:paddingEnd="5dp"
+                            android:textSize="22dp">
+
+                            <EditText
+                                android:id="@+id/etApiServerIP"
+                                style="@style/ConfigurationDetailTextView2"
+                                android:layout_width="180dp"
+                                android:text="58.180.28.217" />
+
+                            <EditText
+                                android:id="@+id/etApiServerPort"
+                                style="@style/ConfigurationDetailTextView2"
+                                android:layout_width="70dp"
+                                android:layout_marginLeft="10dp"
+                                android:inputType="number"
+                                android:text="3000" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@color/colorDivider" />
+
+                    <!-- 미터기 신호 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTachometerSignal"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_external_device_tachometer_signal_by" />
+
+                        <RadioGroup
+                            android:id="@+id/rgTachometerSignal"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <RadioButton
+                                android:id="@+id/rbVacancyLight"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:button="@drawable/selector_btn_popup_radio_btn"
+                                android:checked="true"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                android:text="@string/configuration_external_device_rb_vacancy_light"
+                                android:textColor="@color/selector_tc_configuration_edit_text"
+                                android:textSize="20dp" />
+
+                            <RadioButton
+                                android:id="@+id/rbTachometer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:button="@drawable/selector_btn_popup_radio_btn"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="5dp"
+                                android:text="@string/configuration_external_device_rb_tachometer"
+                                android:textColor="@color/selector_tc_configuration_edit_text"
+                                android:textSize="20dp" />
+                        </RadioGroup>
+                    </LinearLayout>
+
+                    <!-- 미터기 종류 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTachometerLabel"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_external_device_tachometer" />
+
+                        <Spinner
+                            android:id="@+id/spinnerTachometer"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2" />
+                    </LinearLayout>
+
+                    <!-- 미터기 값 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvTachometerTestLabel"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_external_device_tachometer_test" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvTachometerTest"
+                                style="@style/ConfigurationDetailTextView"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="@string/configuration_item_hint_tachometer_test"
+                                android:gravity="center"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:textSize="16dp" />
+
+                            <Button
+                                android:id="@+id/btnTachometerTestInfo"
+                                style="@style/ConfigurationDetailButton"
+                                android:layout_width="60dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/configuration_external_device_test_current" />
+
+                            <Button
+                                android:id="@+id/btnTachometerTestRefresh"
+                                style="@style/ConfigurationDetailButton"
+                                android:layout_width="60dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/configuration_external_device_test_reset" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 빈차등 값 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvVacancyLightTestLabel"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_external_device_vacancy_light_test" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="3"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvVacancyLightTest"
+                                style="@style/ConfigurationDetailTextView"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="@string/configuration_item_hint_vacancy_light_test"
+                                android:gravity="center"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:textSize="16dp" />
+
+                            <Button
+                                android:id="@+id/btnVacancyLightTest"
+                                style="@style/ConfigurationDetailButton"
+                                android:layout_width="60dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/configuration_external_device_vacancy_light_vacancy" />
+
+                            <Button
+                                android:id="@+id/btnVacancyLightTestReservation"
+                                style="@style/ConfigurationDetailButton"
+                                android:layout_width="60dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="5dp"
+                                android:text="@string/configuration_external_device_vacancy_light_reservation" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- 모뎀번호 -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tvModemNumberLabel"
+                            style="@style/ConfigurationLabelTextView"
+                            android:layout_weight="1"
+                            android:text="@string/configuration_service_modem_number" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tvModemNumber"
+                                style="@style/ConfigurationDetailTextView"
+                                android:layout_marginEnd="5dp"
+                                android:layout_weight="1"
+                                android:background="@null"
+                                android:hint="@string/configuration_item_hint_modem_number"
+                                android:paddingStart="5dp"
+                                android:paddingEnd="0dp"
+                                android:textSize="22dp" />
+
+                            <Button
+                                android:id="@+id/btnModemNumberTest"
+                                style="@style/ConfigurationDetailButton"
+                                android:layout_width="60dp"
+                                android:layout_marginStart="0dp"
+                                android:layout_marginEnd="5dp"
+                                android:text="재시도" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_login_btn"
+            android:enabled="true"
+            android:text="@string/popup_btn_modify"
+            android:textColor="@color/selector_tc_common_black_yel09"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_bg_bottom_btn"
+            android:enabled="true"
+            android:text="@string/popup_btn_cancel"
+            android:textColor="@color/selector_tc_menu"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+</RelativeLayout>

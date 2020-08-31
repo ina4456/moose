@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="24dp"
+    tools:context=".view.CallBoardingActivity">
+
+    <TextView
+        android:id="@+id/tv_allocation_status"
+        style="@style/StateTagTextStyle"
+        android:text="@string/allocation_status_boarded"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_allocation_target"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginBottom="16dp"
+        android:drawableStart="@drawable/ic_standby"
+        android:drawablePadding="4dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/allocation_text_destination"
+        android:textColor="@color/colorMainGold"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_target_poi"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_status"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_allocation_target_poi"
+        style="@style/PoiTvStyle"
+        android:textColor="@color/colorMainGold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_target_addr"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_target"
+        android:text="삼환하이펙스 A동" />
+
+    <TextView
+        android:id="@+id/tv_allocation_target_addr"
+        style="@style/AddressTvStyle"
+        android:textColor="@color/colorMainGold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_route"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_target_poi"
+        android:text="분당구 삼평동 판교역로 240" />
+
+    <ImageButton
+        android:id="@+id/btn_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/selector_bg_route_destination_btn"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_prev_target"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_target_addr" />
+
+    <!--출발지-->
+    <TextView
+        android:id="@+id/tv_allocation_prev_target"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/allocation_text_departure"
+        android:textColor="#b3b3b3"
+        android:textSize="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tv_allocation_prev_target_divider"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/tv_allocation_prev_target_divider"
+        android:layout_width="1dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/colorWhite20"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_allocation_prev_target"
+        app:layout_constraintEnd_toStartOf="@+id/tv_allocation_prev_target_poi"
+        app:layout_constraintStart_toEndOf="@+id/tv_allocation_prev_target"
+        app:layout_constraintTop_toTopOf="@+id/tv_allocation_prev_target" />
+
+    <TextView
+        android:id="@+id/tv_allocation_prev_target_poi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxWidth="360dp"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="#b3b3b3"
+        android:textSize="28dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_allocation_prev_target"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toEndOf="@+id/tv_allocation_prev_target_divider"
+        app:layout_constraintTop_toTopOf="@+id/tv_allocation_prev_target"
+        android:text="판교 현대백화점" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_buttons_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="264dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="240dp" />
+
+
+    <!-- 배차 정보 없을 경우  -->
+    <Button
+        android:id="@+id/btn_allocation_alighting"
+        style="@style/AllocationButtonsEtc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="22dp"
+        android:text="@string/main_status_btn_alighting"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl_end_buttons"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_passenger_boarded_without_destination"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/main_status_text_boarded"
+        android:textColor="@color/colorStatusBoardingString"
+        android:textSize="68dp"
+        android:textStyle="bold"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

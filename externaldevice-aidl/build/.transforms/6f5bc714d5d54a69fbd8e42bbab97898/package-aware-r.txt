@@ -1,0 +1,2 @@
+com.thinkware.houston.externaldevice.aidl
+string app_name

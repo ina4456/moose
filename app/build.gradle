@@ -1,0 +1,68 @@
+apply plugin: 'com.android.application'
+
+android {
+    configurations.all {
+        resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+            def requested = details.requested
+            if (requested.group == "androidx.appcompat") {
+                if (!requested.name.startsWith("multidex")) {
+                    details.useVersion "1.+"
+                }
+            }
+        }
+    }
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    defaultConfig {
+        applicationId "com.insoline.pnd"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionName new Date().format("yyyyMMdd") + "01"
+        versionCode Integer.parseInt(versionName)
+        buildConfigField("long", "TIMESTAMP", System.currentTimeMillis() + "L")
+        archivesBaseName = "PND-" + versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    flavorDimensions "default"
+
+    productFlavors {
+        moose {
+            applicationIdSuffix ".moose"
+        }
+        kiev {
+            applicationIdSuffix ".kiev"
+        }
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            applicationIdSuffix ".debug"
+        }
+        release {
+            debuggable false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(':externaldevice-aidl')
+
+//    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0-alpha01'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.material:material:1.2.0-alpha02'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+}

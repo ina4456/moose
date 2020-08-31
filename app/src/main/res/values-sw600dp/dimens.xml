@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!--StatusBar Size-->
+    <dimen name="status_bar_height">45dp</dimen>
+
+    <!--DialogFragment Size-->
+    <dimen name="dialog_fragment_width_match_parent">800dp</dimen>
+    <dimen name="dialog_fragment_width_normal">520dp</dimen>
+    <dimen name="dialog_fragment_width_large">762dp</dimen>
+    <dimen name="dialog_fragment_height_large">376dp</dimen>
+    <dimen name="dialog_fragment_width_selection_list">386dp</dimen>
+    <dimen name="dialog_fragment_width_selection_list_corporation">700dp</dimen>
+
+    <dimen name="bottom_btn_height">52dp</dimen>
+    <dimen name="floating_size">74dp</dimen>
+
+    <dimen name="login_bi_img_height">300dp</dimen>
+    <dimen name="login_guide_begin">548dp</dimen>
+    <dimen name="login_number_pad_width">143dp</dimen>
+    <dimen name="login_number_pad_height">128dp</dimen>
+
+    <!--<dimen name="login_guide_begin">608dp</dimen>
+    <dimen name="login_number_pad_width">122dp</dimen>
+    <dimen name="login_number_pad_height">117dp</dimen>-->
+
+</resources>

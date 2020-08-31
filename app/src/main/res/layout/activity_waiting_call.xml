@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#0f0f0f"
+        android:paddingBottom="24dp"
+        tools:context=".view.activity.WaitingCallListActivity">
+
+        <TextView
+            android:id="@+id/waiting_call_title"
+            style="@style/MainTitle"
+            android:layout_width="0dp"
+            android:text="@string/main_menu_stand_by_call"
+            app:layout_constraintEnd_toStartOf="@+id/btn_waiting_call_refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_waiting_call_refresh"
+            android:layout_width="76dp"
+            android:layout_height="50dp"
+            android:background="@null"
+            android:gravity="center"
+            android:scaleType="center"
+            android:src="@drawable/selector_btn_refresh"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/waiting_call_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/waiting_call_title"
+            app:layout_constraintTop_toTopOf="@+id/waiting_call_title" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_waiting_call"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waiting_call_title"
+            tools:listitem="@layout/item_waiting_call" />
+
+        <TextView
+            android:id="@+id/waiting_call_empty_text"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:text="@string/waiting_zone_empty"
+            android:textColor="#dab668"
+            android:textSize="40dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/waiting_call_title"
+            tools:visibility="gone" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

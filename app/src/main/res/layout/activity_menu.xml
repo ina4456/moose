@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray12">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="209dp" />
+
+        <View
+            android:id="@+id/view_background"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_menu"
+            app:layout_constraintBottom_toTopOf="@+id/gl_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn_call_center"
+            android:layout_width="wrap_content"
+            android:layout_height="76dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="8dp"
+                android:background="@null"
+                android:clickable="false"
+                android:scaleType="center"
+                android:src="@drawable/selector_bg_nav_call_center_ibtn" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:clickable="false"
+                android:gravity="center"
+                android:text="@string/d_menu_call_center_call"
+                android:textColor="@color/selector_tc_myinfo_btn"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_setting"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@null"
+            android:scaleType="center"
+            android:src="@drawable/ic_setting_p"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:background="@null"
+            android:scaleType="center"
+            android:src="@drawable/selector_bg_nav_close_ibtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="ㅇㅇㅇ 기사님"
+            android:textColor="@color/colorYellow03"
+            android:textSize="36dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/tv_vehicle_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_vehicle_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="00가0000"
+            android:textColor="@color/colorYellow03"
+            android:textSize="36dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_driver_name" />
+
+        <Button
+            android:id="@+id/btn_my_info"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/selector_bg_nav_myinfo_btn"
+            android:text="@string/d_menu_my_info"
+            android:textColor="@color/selector_tc_myinfo_btn"
+            android:textSize="22dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/gl_horizontal"
+            app:layout_constraintEnd_toStartOf="@+id/btn_logout"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/selector_bg_logout_btn"
+            android:text="@string/main_menu_logout"
+            android:textColor="@color/selector_tc_common_yel_yel01"
+            android:textSize="22dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/gl_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btn_my_info" />
+
+        <LinearLayout
+            android:id="@+id/ll_btn_notice"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ll_btn_msg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gl_horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_notice" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_notice" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_msg"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ll_btn_history"
+            app:layout_constraintStart_toEndOf="@+id/ll_btn_notice"
+            app:layout_constraintTop_toBottomOf="@+id/gl_horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_callcenter" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_call_center_msg" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_history"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_btn_msg"
+            app:layout_constraintTop_toBottomOf="@+id/gl_horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_history" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_call_history" />
+        </LinearLayout>
+
+
+        <!--<LinearLayout
+            android:id="@+id/ll_btn_notice"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_btn_history"
+            app:layout_constraintEnd_toStartOf="@+id/ll_btn_msg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/gl_horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_notice" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_notice" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_msg"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginStart="1dp"
+            android:layout_marginBottom="1dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_btn_my_info"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_btn_notice"
+            app:layout_constraintTop_toBottomOf="@+id/gl_horizontal">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_callcenter" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_call_center_msg" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_history"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ll_btn_my_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_btn_notice">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_history" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_call_history" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_my_info"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_btn_history"
+            app:layout_constraintTop_toBottomOf="@+id/ll_btn_msg">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_setting" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_my_info" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_btn_setting"
+            style="@style/NavMenuContainerStyle"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="1dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ll_btn_history"
+            app:layout_constraintTop_toBottomOf="@+id/ll_btn_msg">
+
+            <ImageView
+                android:layout_width="42dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hs_menu_ic_setting" />
+
+            <TextView
+                style="@style/NavMenuTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/d_menu_setting" />
+        </LinearLayout>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
+

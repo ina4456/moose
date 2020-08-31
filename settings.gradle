@@ -1,0 +1,2 @@
+include ':app', ':externaldevice-aidl'
+rootProject.name='moose'

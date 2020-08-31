@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_bg"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp"
+    android:paddingBottom="24dp"
+    tools:context=".view.CallReceiveActivity">
+
+    <TextView
+        android:id="@+id/tv_allocation_status"
+        style="@style/StateTagTextStyle"
+        android:text="@string/allocation_status_receiving"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <RatingBar
+        android:id="@+id/rb_call_grade"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:isIndicator="true"
+        android:max="5"
+        android:numStars="5"
+        app:layout_constraintBottom_toTopOf="@+id/tv_here"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_status"
+        tools:rating="3" />
+
+    <!--여기서-->
+    <TextView
+        android:id="@+id/tv_here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="6dp"
+        android:gravity="center_vertical|end"
+        android:text="@string/allocation_here"
+        android:textColor="@color/colorGray03"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_departure_poi"
+        app:layout_constraintEnd_toStartOf="@+id/tv_allocation_distance"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rb_call_grade"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tv_allocation_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:textColor="@color/colorWhite2"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_here"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toEndOf="@+id/tv_here"
+        app:layout_constraintTop_toTopOf="@+id/tv_here"
+        android:text="500m" />
+
+    <TextView
+        android:id="@+id/tv_allocation_departure_poi"
+        style="@style/PoiTvStyle"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_departure_addr"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_distance"
+        android:text="삼환하이펙스 A동" />
+
+    <TextView
+        android:id="@+id/tv_allocation_departure_addr"
+        style="@style/AddressTvStyle"
+        app:layout_constraintBottom_toTopOf="@+id/iv_allocation_down_arrow"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_departure_poi"
+        android:text="분당구 삼평동 판교역로 240" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="iv_allocation_down_arrow,tv_allocation_destination_poi,tv_allocation_destination_addr" />
+
+    <ImageView
+        android:id="@+id/iv_allocation_down_arrow"
+        android:layout_width="45dp"
+        android:layout_height="80dp"
+        android:src="@drawable/call_arrow"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_destination_poi"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_departure_addr" />
+
+    <TextView
+        android:id="@+id/tv_allocation_destination_poi"
+        style="@style/PoiTvStyle"
+        android:textColor="@color/colorMainGold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_allocation_destination_addr"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_allocation_down_arrow"
+        android:text="판교역 현대백화점 후문 주차장 입구\n 두줄....두줄두줄두줄." />
+
+    <TextView
+        android:id="@+id/tv_allocation_destination_addr"
+        style="@style/AddressTvStyle"
+        android:textColor="@color/colorMainGold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gl_end_buttons_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_allocation_destination_poi"
+        android:visibility="gone"
+        android:text="분당구 삼평동 판교역로 240" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_buttons_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="264dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_end_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="240dp" />
+
+    <Button
+        android:id="@+id/btn_allocation_refuse"
+        style="@style/AllocationButtonsEtc"
+        android:layout_marginTop="22dp"
+        android:layout_marginBottom="4.5dp"
+        android:text="@string/allocation_btn_refuse"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/btn_allocation_request"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_allocation_request"
+        style="@style/AllocationButtonsMain"
+        android:layout_marginTop="4.5dp"
+        android:text="@string/allocation_btn_request"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_allocation_refuse" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

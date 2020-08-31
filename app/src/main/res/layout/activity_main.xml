@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".view.MainActivity">
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="false"
+        tools:openDrawer="start">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/main_bg">
+
+            <include layout="@layout/layout_top_view" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_horizontal_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="112dp" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_marginEnd="10dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/main_status_text_vacancy"
+                android:textColor="@color/colorStatusVacancyString"
+                android:textSize="68dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/gl_bottom_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gl_horizontal_status"
+                app:layout_constraintVertical_bias="0"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tv_status_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/main_status_text_resting_sub"
+                android:textColor="#737373"
+                android:textSize="32dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_status"
+                tools:visibility="gone" />
+
+            <Button
+                android:id="@+id/btn_waiting_zone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/selector_btn_waiting_zone"
+                android:drawableStart="@drawable/hs_main_pin_icon"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:minWidth="170dp"
+                android:minHeight="0dp"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="6dp"
+                android:text="@string/main_btn_waiting_zone"
+                android:textColor="@color/selector_tc_common_yel_yel01"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/btn_call_list"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_status" />
+
+            <Button
+                android:id="@+id/btn_call_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:background="@drawable/selector_btn_waiting_zone"
+                android:drawableStart="@drawable/hs_main_calllist_icon"
+                android:drawablePadding="6dp"
+                android:gravity="center"
+                android:minWidth="170dp"
+                android:minHeight="0dp"
+                android:paddingStart="12dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="6dp"
+                android:src="@drawable/selector_btn_waiting_call_list"
+                android:text="@string/main_menu_stand_by_call"
+                android:textColor="@color/selector_tc_common_yel_yel01"
+                android:textSize="28dp"
+                android:textStyle="bold"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_waiting_zone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btn_waiting_zone"
+                app:layout_constraintTop_toTopOf="@+id/btn_waiting_zone" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl_bottom_buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_end="122dp" />
+
+            <Button
+                android:id="@+id/btn_resting"
+                style="@style/MainStatusButton"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/main_btn02_n"
+                android:text="@string/main_status_btn_resting"
+                android:textColor="@color/selector_tc_common_black_yel09"
+                app:layout_constraintBottom_toBottomOf="@+id/gl_bottom_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <Button
+                android:id="@+id/btn_receiving_call"
+                style="@style/MainStatusButton"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/selector_bg_login_btn"
+                android:text="@string/main_status_btn_receiving_call"
+                android:textColor="@color/selector_tc_common_black_yel09"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/gl_bottom_buttons"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_app_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorYellow"
+                android:textSize="14dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="Ver:400" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.insoline.pnd">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> <!-- 아이나비 실행시 getRecentTasks 메서드를 사용할때 필요함 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".common.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".IntroActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.LoginActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden"></activity>
+        <activity
+            android:name=".view.MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:exported="true"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.CallReceiveActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.CallInfoActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.CallBoardingActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.ConfigActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustPan"></activity>
+        <activity
+            android:name=".view.PopupActivity"
+            android:launchMode="singleInstance"
+            android:screenOrientation="landscape"
+            android:theme="@style/PopupDialog"></activity>
+        <activity
+            android:name=".view.WaitingZoneActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.WaitingCallActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.MenuActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.MyInfoActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.NoticeActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.OperationHistoryActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.OperationHistoryDetailActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".view.LogFileActivity"
+            android:screenOrientation="landscape"></activity>
+
+        <service android:name=".service.ScenarioService" />
+        <service android:name=".service.FloatingViewService" />
+    </application>
+
+</manifest>

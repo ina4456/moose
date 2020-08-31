@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="6dp"
+        android:background="@color/colorGray10">
+
+        <ImageView
+            android:id="@+id/iv_call_type"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_date"
+            app:layout_constraintBottom_toTopOf="@+id/view_divider"
+            android:layout_marginStart="20dp"
+            android:visibility="gone"
+            android:src="@drawable/hs_tag_general"
+            android:layout_width="52dp"
+            android:layout_height="26dp">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/tv_call_type"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintEnd_toStartOf="@+id/tv_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_date"
+            android:text="@string/history_normal"
+            android:textSize="11dp"
+            android:textStyle="bold"
+            android:textColor="@color/colorYellow"
+            android:gravity="center"
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="2dp"
+            android:background="@drawable/selector_rounded_border_rect_status_normal"
+            android:minWidth="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <!--날짜-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_date"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="start|center_vertical"
+            android:textColor="#b2b2b2"
+            android:textSize="22dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view_divider"
+            app:layout_constraintEnd_toStartOf="@+id/tv_order_status"
+            app:layout_constraintStart_toEndOf="@+id/tv_call_type"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
+            tools:text="2018.12.31"/>
+
+        <!--상태-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_order_status"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/colorGreen02"
+            android:textSize="22dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_date"
+            app:layout_constraintEnd_toStartOf="@+id/cl_call_passenger"
+            app:layout_constraintStart_toEndOf="@+id/tv_date"
+            app:layout_constraintTop_toTopOf="@+id/tv_date"
+            tools:text="운행완료"/>
+
+        <View
+            android:id="@+id/view_divider"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/colorWhite10"
+            app:layout_constraintTop_toBottomOf="@+id/tv_date"
+            app:layout_constraintBottom_toTopOf="@+id/tv_departure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/cl_call_passenger"/>
+
+
+        <View
+            android:id="@+id/view_vertical_line"
+            android:layout_width="2dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="2dp"
+            android:background="@color/colorGray08"
+            app:layout_constraintBottom_toTopOf="@+id/iv_destination_icon"
+            app:layout_constraintEnd_toEndOf="@+id/iv_departure_icon"
+            app:layout_constraintStart_toStartOf="@+id/iv_departure_icon"
+            app:layout_constraintTop_toBottomOf="@+id/iv_departure_icon"/>
+
+        <!--출발지 라벨, 내용, 시간-->
+        <ImageView
+            android:id="@+id/iv_departure_icon"
+            android:layout_width="45dp"
+            android:layout_height="10dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:src="@drawable/hs_d_dot_start"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_departure"
+            app:layout_constraintEnd_toStartOf="@+id/tv_departure"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_departure"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_departure"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="6dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="start|center_vertical"
+            android:textColor="@color/colorGray13"
+            android:textSize="26dp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_destination"
+            app:layout_constraintEnd_toStartOf="@+id/tv_start_time"
+            app:layout_constraintStart_toEndOf="@+id/iv_departure_icon"
+            app:layout_constraintTop_toBottomOf="@+id/view_divider"
+            tools:text="분당구 삼평동 팅크웨어"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/colorGray14"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_departure"
+            app:layout_constraintEnd_toStartOf="@+id/cl_call_passenger"
+            app:layout_constraintStart_toEndOf="@+id/tv_departure"
+            app:layout_constraintTop_toTopOf="@+id/tv_departure"
+            tools:text="10:45"/>
+
+
+        <!--도착지 라벨, 내용, 시간-->
+        <ImageView
+            android:id="@+id/iv_destination_icon"
+            android:layout_width="45dp"
+            android:layout_height="10dp"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:src="@drawable/hs_d_dot_end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_destination"
+            app:layout_constraintEnd_toStartOf="@+id/tv_destination"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_destination"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_destination"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="start|center_vertical"
+            android:textColor="@color/colorGray13"
+            android:textSize="26dp"
+            app:layout_constraintBottom_toTopOf="@+id/cl_call_passenger"
+            app:layout_constraintEnd_toStartOf="@+id/tv_end_time"
+            app:layout_constraintStart_toEndOf="@+id/iv_destination_icon"
+            app:layout_constraintTop_toBottomOf="@+id/tv_departure"
+            tools:text="분당구 삼평동 팅크웨어\n이이이이이이이이이이이이이"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_end_time"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="20dp"
+            android:background="@android:color/transparent"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/colorGray14"
+            android:textSize="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_destination"
+            app:layout_constraintEnd_toStartOf="@+id/cl_call_passenger"
+            app:layout_constraintStart_toEndOf="@+id/tv_destination"
+            app:layout_constraintTop_toTopOf="@+id/tv_destination"
+            tools:text="10:45"/>
+
+        <!--전화-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_call_passenger"
+            android:focusable="true"
+            android:clickable="true"
+            android:layout_width="116dp"
+            android:layout_height="0dp"
+            android:background="@drawable/selector_bg_common_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_order_status"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/iv_call_passenger"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="12dp"
+                android:background="@android:color/transparent"
+                android:scaleType="center"
+                android:src="@drawable/selector_bg_nav_call_center_btn"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_constraintVertical_chainStyle="packed"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_call_passenger"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_call_passenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:text="@string/history_call_to_passenger"
+                android:textColor="@color/selector_tc_common_yel_yel01"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                android:clickable="false"
+                android:focusable="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_call_passenger"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
