@@ -3,6 +3,7 @@ package com.insoline.pnd.config;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -99,32 +100,37 @@ public class ConfigLoader {
     private ConfigLoader() {
         // Activity와 서비스 각각 객체 생성시 환경 설정 정보 싱크가 맞지 않는 이슈가 있어
         // singletone으로 정의 한다.
+        Log.d("여기통과?", "ConfigLoader1");
     }
 
     public static ConfigLoader getInstance() {
+        Log.d("여기통과?", "ConfigLoader2");
         return instance;
     }
 
     public void initialize(Context context) {
+        Log.d("여기통과?", "ConfigLoader3");
         this.mPreferenceUtil = new PreferenceUtil(context);
         this.mContext = context;
         load();
     }
 
     public String toString() {
+        //Log.d("여기통과?", "ConfigLoader4");
         return mConfig.toString();
     }
 
     private void load() {
-
         mConfig = mPreferenceUtil.getConfiguration();
         if (mConfig != null) {
+            Log.d("여기통과?", "ConfigLoader=null, isLoaded="+mConfig.isLoaded);
             mConfig.isLoaded = true;
 
         } else {
             // load default
+            Log.d("여기통과?", "ConfigLoader5 : "+mConfig);
             mConfig = new Config();
-            mConfig.initiated = false;
+            mConfig.initiated = false;//원래 false!!!@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
             mConfig.isLoaded = false;
             mConfig.appVersion = SiteConstants.APP_VERSION;
             mConfig.configVersion = 0;
@@ -133,6 +139,7 @@ public class ConfigLoader {
             mConfig.serviceNumber = SiteConstants.SERVICE_NUMBER;
             mConfig.corporationCode = SiteConstants.CORPORATION_CODE;
 
+            Log.d("configloader IP " , SiteConstants.CALL_SERVER_IP + ", PORT : " + SiteConstants.CALL_SERVER_PORT);
             mConfig.callServerIp = SiteConstants.CALL_SERVER_IP;
             mConfig.callServerPort = SiteConstants.CALL_SERVER_PORT;
             mConfig.apiServerIp = SiteConstants.API_SERVER_IP;
@@ -163,10 +170,12 @@ public class ConfigLoader {
     }
 
     public boolean hasConfiguration() {
+        Log.d("여기통과?", "ConfigLoader6 : "+mConfig.initiated);
         return mConfig.initiated;
     }
 
     public void write(ResponseConfigPacket response) {
+        Log.d("여기통과?", "ConfigLoader7 - write");
         mConfig.carId = response.getCarId();
         mConfig.configVersion = response.getVersion();
         mConfig.pst = response.getPeriodSendingTime();
@@ -190,14 +199,17 @@ public class ConfigLoader {
     }
 
     public void mkLoggingDir() {
-        if (mConfig.ls) {
+        Log.d("여기통과?", "ConfigLoader8 - mkLoggingDir");
+        if (mConfig.ls) {   // 로그 저장 true
             String rootPath = ((BaseApplication) mContext.getApplicationContext()).getInternalDir();
             File directory = new File(rootPath);
+
             if (directory == null || !directory.exists()) {
+                Log.d("파일 만들어지나", "?");
                 directory.mkdirs();
             }
             LogHelper.enableWriteLogFile(directory.getAbsolutePath());
-        } else {
+        } else { // 로그 저장 false
             LogHelper.disableWriteLogFile();
         }
     }

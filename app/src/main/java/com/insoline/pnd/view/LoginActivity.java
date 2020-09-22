@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.provider.Settings;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -71,8 +72,11 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
 
         //환경설정 체크
         if (hasConfiguration()) {
-            //자동로그인 체크 (개인 and 자동로그인)
+            //자동로그인 체크 (개인 and 자동로그인) isCorporation:개인/법인 여부 개인(false),법인(true) // isAutoLogin : 자동로그인 유무(true:개인, false:법인, 로그아웃한 개인)
+            Log.d("로그인", getConfigLoader().isCorporation()+", "+getConfigLoader().isAutoLogin());
+
             if (!getConfigLoader().isCorporation() && getConfigLoader().isAutoLogin()) {
+                Log.d("로그인", "2");
                 String strPhoneNum = loginTvPhoneNumber.getText().toString();
 
                 if (!StringUtil.isEmptyString(strPhoneNum)) {
@@ -143,7 +147,9 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
      * 환경 설정 파일이 존재하는지 체크 한다.
      */
     public boolean hasConfiguration() {
+        Log.d("로그인 Hasconfiguration : ", getConfigLoader().hasConfiguration()+"");
         if (!getConfigLoader().hasConfiguration()) {
+            Log.d("로그인", " : "+Popup.TYPE_TWO_BTN_EDIT_TEXT +" , "+ Constants.DIALOG_TAG_CONFIG_ADMIN);
             goConfigActivity();
             return false;
         } else {
@@ -155,6 +161,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
     private void goLogin() {
         super.startLoadingProgress();
 
+        Log.d("고 로그인", "hasConfiguration() : "+hasConfiguration());//true
         //환경설정 체크
         if (hasConfiguration()) {
 
@@ -186,6 +193,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
 
                     //네트워크 오류
                     if (!isNetwork) {
+                        Log.d("고 로그인", "네트워크 오류");
                         LoginActivity.super.finishLoadingProgress();
                         WavResourcePlayer.getInstance(LoginActivity.this).play(R.raw.voice_103);
                         Popup popup = new Popup
@@ -203,6 +211,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
 
     //환경 설정 화면이동
     private void goConfigActivity() {
+        Log.d("로그인", " : "+Popup.TYPE_TWO_BTN_EDIT_TEXT +" , "+ Constants.DIALOG_TAG_CONFIG_ADMIN);
         Popup popup = new Popup
                 .Builder(Popup.TYPE_TWO_BTN_EDIT_TEXT, Constants.DIALOG_TAG_CONFIG_ADMIN)
                 .setTitle(getString(R.string.configuration_admin_password))
@@ -286,7 +295,7 @@ public class LoginActivity extends BaseActivity implements TextWatcher {
      * @param certCode
      */
     public void applyCertificationResult(Packets.CertificationResult result, int certCode) {
-        LogHelper.d(">> Cert Result = " + result + ", " + certCode);
+        Log.d("차량인증", ">>Cert Result = " + result + ", " + certCode);
         super.finishLoadingProgress();
 
         if (result != Packets.CertificationResult.Success) {

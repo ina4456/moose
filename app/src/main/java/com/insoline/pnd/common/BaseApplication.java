@@ -21,6 +21,7 @@ import android.os.IBinder;
 import android.os.Message;
 import android.os.RemoteException;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatDialog;
@@ -130,20 +131,25 @@ public class BaseApplication extends Application implements Application.Activity
             registerUsbReceiver();
         }
 
+        Log.d("BaseApplication", "onCreate");
         if (mConfigLoader.hasConfiguration()) {
+            Log.d("BaseApplication", "hasConfiquration");    //얘가 실행 안됨
             bindAllServices();
         }
     }
 
     public static ContextProvider getContextProvider() {
+        Log.d("BaseApplication", "BaseApplication - getContextProvider");
         return mContextProvider;
     }
 
     public ScenarioService getScenarioService() {
+        Log.d("BaseApplication", "BaseApplication - getScenarioService");
         return mScenarioService;
     }
 
     public ConfigLoader getConfigLoader() {
+        Log.d("BaseApplication", " - getConfigLoader");
         return mConfigLoader;
     }
 
@@ -170,6 +176,10 @@ public class BaseApplication extends Application implements Application.Activity
     private void bindServices() {
         LogHelper.d("bindServices()");
         if (mScenarioService == null) {
+            Log.d("여기통과?", "BaseApplication - getConfigLoader - null");
+
+
+            //dho ScenarioService 실행 안대.....
             Intent intent = new Intent(this, ScenarioService.class);
             startService(intent);
             bindService(intent, scenarioServiceConnection, Context.BIND_AUTO_CREATE);
@@ -975,14 +985,16 @@ public class BaseApplication extends Application implements Application.Activity
         try {
             if (progressDialog != null && progressDialog.isShowing()) {
                 progressDialog.dismiss();
+                Log.d("차량인증", "BaseApplication - progressOff 성공");
             }
+            Log.d("차량인증", "BaseApplication - progressOff 실패");
         } catch (final IllegalArgumentException e) {
-            LogHelper.e("IllegalArgumentException progressDialog ");
+            Log.d("IllegalArgument", e.getMessage());
             e.printStackTrace();
         } catch (final Exception e) {
-            LogHelper.e("Exception progressDialog ");
+            LogHelper.e("Exception", e.getMessage());
         } finally {
-            progressDialog = null;
+           progressDialog = null;
         }
     }
 }

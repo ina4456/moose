@@ -1,5 +1,7 @@
 package com.insoline.pnd.model;
 
+import android.util.Log;
+
 import com.insoline.pnd.R;
 import com.insoline.pnd.common.BaseApplication;
 import com.insoline.pnd.config.Constants;
@@ -160,11 +162,13 @@ public class Popup implements Serializable {
             this.tag = tag;
             this.type = type;
             final ContextProvider rp = BaseApplication.getContextProvider();
+            Log.d("팝업 : ", "type= "+type);
             switch (type) {
                 case TYPE_ONE_BTN_NORMAL:
                 case TYPE_TWO_BTN_NORMAL:
                 case TYPE_TWO_BTN_EDIT_TEXT:
                     this.width = rp.getResources().getDimensionPixelSize(R.dimen.dialog_fragment_width_normal);
+                    //this.width = 520dp;
                     break;
 				case TYPE_ONE_BTN_LARGE:
 				case TYPE_TWO_BTN_LARGE:
@@ -185,6 +189,7 @@ public class Popup implements Serializable {
         }
 
         public Builder setTitle(String title) {
+            Log.d("팝업 : ", "실행 title:"+title);
             this.title = title;
             return this;
         }

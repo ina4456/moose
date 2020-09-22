@@ -99,7 +99,8 @@ public class FloatingViewService extends Service implements View.OnTouchListener
 
 //			mRepository = ((BaseApplication)getApplication()).getRepository();
 //			subscribeCallInfo(mRepository);
-			addStatusView();
+			//addStatusView();
+
 		}
 	}
 
@@ -240,8 +241,8 @@ public class FloatingViewService extends Service implements View.OnTouchListener
 	public void onDestroy() {
 		super.onDestroy();
 		saveLastPosition();
-		windowManager.removeView(statusView);
-		windowManager.removeView(topLeftView);
+		//windowManager.removeView(statusView);
+		//windowManager.removeView(topLeftView);
 		this.stopSelf();
 	}
 

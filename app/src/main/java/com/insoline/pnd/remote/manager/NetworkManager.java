@@ -65,6 +65,7 @@ public class NetworkManager {
     }
 
     public void connect(String ip, int port) {
+        LogHelper.d(">> Connecting... IP : " + ip + ", PORT : " + port);
         if (connector != null && connector.isConnected()) {
             LogHelper.d(">> Already connected.");
         } else {

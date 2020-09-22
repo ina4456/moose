@@ -2,6 +2,7 @@ package com.insoline.pnd.view;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -61,10 +62,10 @@ public class MainActivity extends BaseActivity {
         btnCallList.setOnClickListener(this);
 
 
-        if (getScenarioService().getRestType() == Packets.RestType.Rest)
-            isRest = true;
-        else
-            isRest = false;
+        //if (getScenarioService().getRestType() == Packets.RestType.Rest)
+        //    isRest = true;
+        //else
+        //    isRest = false;
 
         tvCarNum.setText(String.valueOf(getConfigLoader().getCarId()));
         checkRestView(isRest);
@@ -139,10 +140,8 @@ public class MainActivity extends BaseActivity {
 
     private void checkRequestRest(Packets.RestType restType) {
         //배차정보 or 탑승 중 체크
-        if (getScenarioService().getBoardType() == Packets.BoardType.Boarding
-                || getPreferenceUtil().getCallInfoWait() != null
+        if (getScenarioService().getBoardType() == Packets.BoardType.Boarding || getPreferenceUtil().getCallInfoWait() != null
                 || getPreferenceUtil().getCallInfoNormal() != null) {
-
             Popup popup = new Popup
                     .Builder(Popup.TYPE_ONE_BTN_NORMAL, Constants.DIALOG_TAG_FAILURE)
                     .setTitle(getString(R.string.popup_btn_confirm))

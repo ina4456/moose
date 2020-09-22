@@ -11,6 +11,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -144,7 +145,6 @@ public class ScenarioService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-
         this.mContext = this;
         mConfigLoader = ConfigLoader.getInstance();
         periodTerm = mConfigLoader.getPst();
@@ -177,14 +177,14 @@ public class ScenarioService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        LogHelper.d(">> onBind()");
+        Log.d("ScenarioService", "onBind");//onBind()는 서비스와 클라이언트 사이의 인터페이스 역할을 하는 iBind를 반환.
         return binder;
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        LogHelper.d(">> onDestroy()");
+        Log.d("ScenarioService", "onDestroy");
         destroy();
     }
 
@@ -213,11 +213,12 @@ public class ScenarioService extends Service {
 
     // 서비스 인증 성공 여부
     public boolean hasCertification() {
+        Log.d("ScenarioService", "hasCerification");//ok1
         return hasCertification;
     }
 
     public void setTachometerServiceStatus(String tachometerServiceStatus) {
-        LogHelper.e("setTachometerServiceStatus : " + tachometerServiceStatus);
+        //Log.d("TachometerServiceStatus" , tachometerServiceStatus);
         this.tachometerServiceStatus = tachometerServiceStatus;
     }
 
@@ -247,6 +248,7 @@ public class ScenarioService extends Service {
             if (isDestroyed) {
                 return;
             }
+            Log.d("ScenarioService", "Handler msg="+msg);//ok1
 
             Popup popup = null;
             Activity activity = null;
@@ -380,7 +382,7 @@ public class ScenarioService extends Service {
         public void onReceivedPacket(@NonNull ResponsePacket response) {
             LogHelper.e(">> RES " + response);
             int messageType = response.getMessageType();
-
+            Log.d("scenarioService", "ReceivedPacket-MessageType"+messageType);
             if (messageType != Packets.RESPONSE_SERVICE && !hasCertification) {
                 LogHelper.d(">> Skip received packet. Invalid service certification.");
                 return;
@@ -637,6 +639,7 @@ public class ScenarioService extends Service {
      * @param withTimer
      */
     public void requestService(String driverNumber, boolean withTimer) {
+        Log.d("ScenarioService", "requestService");//ok1
         driverNumber = driverNumber.replaceAll("-", "");
 
         RequestServicePacket packet = new RequestServicePacket();
@@ -666,8 +669,8 @@ public class ScenarioService extends Service {
         //로그인 화면에 인증 결과 전달
         Activity activity = mBaseApplication.getActivity(LoginActivity.class);
         if (activity != null) {
-            ((LoginActivity) activity).applyCertificationResult(
-                    responsePacket.getCertificationResult(), responsePacket.getCertCode());
+            Log.d("차량인증 responseService", responsePacket.getCertificationResult()+", "+responsePacket.getCertCode());
+            ((LoginActivity) activity).applyCertificationResult(responsePacket.getCertificationResult(), responsePacket.getCertCode());
         }
 
         //인증 성공
@@ -698,8 +701,7 @@ public class ScenarioService extends Service {
 
             ResponseCallOrderPacket callInfoNormal = mPreferenceUtil.getCallInfoNormal();
             periodTerm = mConfigLoader.getPst();
-            if (callInfoNormal != null && !callInfoNormal.isReported()
-                    && callInfoNormal.getOrderKind() == Packets.OrderKind.Mobile) {
+            if (callInfoNormal != null && !callInfoNormal.isReported() && callInfoNormal.getOrderKind() == Packets.OrderKind.Mobile) {
                 periodTerm = mConfigLoader.getRc();
             }
             pollingPeriod(periodTerm);
@@ -1112,12 +1114,12 @@ public class ScenarioService extends Service {
      */
     public void requestCallOrderRealtime(Packets.OrderDecisionType type, ResponseCallOrderPacket info) {
         RequestCallOrderRealtimePacket packet = new RequestCallOrderRealtimePacket();
-        packet.setServiceNumber(mConfigLoader.getServiceNumber());
-        packet.setCorporationCode(mConfigLoader.getCorporationCode());
-        packet.setCarId(mConfigLoader.getCarId());
-        packet.setPhoneNumber(mConfigLoader.getDriverPhoneNumber());
-        packet.setCallNumber(info.getCallNumber());
-        packet.setCallReceiptDate(info.getCallReceiptDate());
+        packet.setServiceNumber(mConfigLoader.getServiceNumber());      //서비스 번호
+        packet.setCorporationCode(mConfigLoader.getCorporationCode());  //회사코드
+        packet.setCarId(mConfigLoader.getCarId());  //car Id
+        packet.setPhoneNumber(mConfigLoader.getDriverPhoneNumber());    //기사 전화번호
+        packet.setCallNumber(info.getCallNumber());     //고객번호
+        packet.setCallReceiptDate(info.getCallReceiptDate());  //콜 접수일자
         packet.setDecisionType(type);
         packet.setSendTime(getCurrentTime());
         packet.setGpsTime(mGpsHelper.getTime());
@@ -1145,7 +1147,7 @@ public class ScenarioService extends Service {
 
         mBaseApplication.setWasBackground(mBaseApplication.isBackground());
         ResponseCallOrderPacket callInfoTemp = mPreferenceUtil.getCallInfoTemp();
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         boolean isFailed;
         if (callInfoTemp == null || responsePacket.getOrderProcType() != Packets.OrderProcType.Display) {
             isFailed = true;

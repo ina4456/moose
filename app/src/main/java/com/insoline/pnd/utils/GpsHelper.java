@@ -8,6 +8,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -33,7 +34,12 @@ public class GpsHelper {
         this.context = context;
         simpleDateFormat = new SimpleDateFormat("yyMMddHHmmss");
         locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, locationListener);
+
+        //1.
+        //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MIN_TIME, MIN_DISTANCE, locationListener);
+
+        //2. test
+
 
 
 	    /**
@@ -63,12 +69,13 @@ public class GpsHelper {
      */
     public float getLongitude() {
         findLastKnownLocation();
+//        Log.d("GpeHelper -Longitude", String.valueOf(lastLocation.getLongitude())); 실내에서 gps못받아오는 경우 활설화 안
         if (lastLocation != null) {
             LogHelper.d(">> gps longitude : " + lastLocation.getLongitude());
             return (float) lastLocation.getLongitude();
         }
-        return 0.0f;
-//	    return (float) 127.112129;  //테스트 기흥
+//        return 0.0f;
+	    return (float) 127.112129;  //테스트 기흥
     }
 
     /**
@@ -80,8 +87,8 @@ public class GpsHelper {
             LogHelper.d(">> gps latitude : " + lastLocation.getLatitude());
             return (float) lastLocation.getLatitude();
         }
-        return 0.0f;
-//	    return (float) 37.266266;   //테스트 기흥
+//        return 0.0f;
+	    return (float) 37.266266;   //테스트 기흥
     }
 
     /**
@@ -148,6 +155,7 @@ public class GpsHelper {
     private void findLastKnownLocation() {
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         if (location != null && location.getLatitude() > 0 && location.getLongitude() > 0) {
+            Log.d("GpsHelper", "find-LocationManager!");
             lastLocation = location;
         }
     }

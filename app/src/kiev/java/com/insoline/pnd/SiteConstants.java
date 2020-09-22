@@ -23,10 +23,11 @@ public class SiteConstants {
 	public static final int CONFIG_RT = 7;
 	public static final int CONFIG_CVT = 6;
 
-	public static final String CALL_SERVER_IP = "58.180.28.220"; 	// 콜 서버 IP
+	public static final String CALL_SERVER_IP = "58.180.28.217"; 	// 콜 서버 IP
 	public static final int CALL_SERVER_PORT = 3000; 				// 콜 서버 PORT
-	public static final String API_SERVER_IP = "58.180.28.220"; 	// API 서버 IP
+	public static final String API_SERVER_IP = "58.180.28.217"; 	// API 서버 IP
 	public static final int API_SERVER_PORT = 8090; 				// API 서버 PORT
+
 
 	public static final boolean IS_CONNECT_UART = false;  			// true:Uart(Moose), false:USB(Kiev)
 	public static final String SERIAL_PORT_TYPE = SERIAL_PORT_VACANCYLIGHT;  // 미터기 연결 시리얼 포트 타입 (케이블 연결에 따라 변경됨)

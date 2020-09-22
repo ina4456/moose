@@ -51,8 +51,8 @@ public class MenuActivity extends BaseActivity {
         llBtnNotice.setOnClickListener(this);
         llBtnMsg.setOnClickListener(this);
         llBtnHistory.setOnClickListener(this);
-        llBtnMyInfo.setOnClickListener(this);
-        llBtnSetting.setOnClickListener(this);
+        //llBtnMyInfo.setOnClickListener(this);
+        //llBtnSetting.setOnClickListener(this);
     }
 
     @Override

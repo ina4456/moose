@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
@@ -77,16 +78,17 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         mPreferenceUtil = new PreferenceUtil(this);
     }
 
-    public BaseApplication getBaseApplication() {
-        return (BaseApplication) this.getApplicationContext();
-    }
-
     public ConfigLoader getConfigLoader() {
-        return getBaseApplication().getConfigLoader();
+    return getBaseApplication().getConfigLoader();
     }
 
     public ScenarioService getScenarioService() {
+        Log.d("BaseApplication", "getScenarioService");//no
         return getBaseApplication().getScenarioService();
+    }
+
+    public BaseApplication getBaseApplication() {
+        return (BaseApplication) this.getApplicationContext();
     }
 
     public PreferenceUtil getPreferenceUtil() {
@@ -276,17 +278,19 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
      * @param popup
      */
     public void showPopupDialog(Popup popup) {
+        Log.d("showPopupDialog", "popupDialogFragment == null");
         if (!isFinishing()) {
-            PopupDialogFragment dialogFragment = PopupDialogFragment.newInstance(popup);
             FragmentManager fragmentManager = getSupportFragmentManager();
-
             PopupDialogFragment popupDialogFragment = (PopupDialogFragment) fragmentManager.findFragmentByTag(popup.getTag());
+
             if (popupDialogFragment != null) {
+                Log.d("showPopupDialog", "popupDialogFragment != null");
                 fragmentManager.beginTransaction()
                         .remove(popupDialogFragment)
                         .commit();
             }
 
+            PopupDialogFragment dialogFragment = PopupDialogFragment.newInstance(popup);
             fragmentManager.beginTransaction()
                     .add(dialogFragment, popup.getTag())
                     .commitAllowingStateLoss();

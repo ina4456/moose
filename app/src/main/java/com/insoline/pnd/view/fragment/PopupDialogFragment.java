@@ -12,6 +12,7 @@ import android.os.CountDownTimer;
 import android.text.InputFilter;
 import android.text.InputType;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -73,6 +74,7 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
      * @param popup 팝업 객체
      */
     public static PopupDialogFragment newInstance(Popup popup) {
+
         Bundle bundle = new Bundle();
         bundle.putSerializable(ARG_DIALOG_POPUP, popup);
 
@@ -89,7 +91,7 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
             if (getParentFragment() != null) {
                 listener = (PopupDialogListener) getParentFragment();
             } else {
-                listener = (PopupDialogListener) context;
+                listener = (PopupDialogListener) context;       //parentFragment가 있다면 PopupDialogListener실행
             }
         } catch (ClassCastException e) {
             throw new ClassCastException(context.toString() + " must implement PopupDialogListener for callback");
@@ -101,13 +103,13 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
             popup = (Popup) getArguments().getSerializable(ARG_DIALOG_POPUP);
+            Log.d("팝업 프레그먼: ", "onCreate");
         }
     }
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 //        LogHelper.e("onCreateDialog()");
-
         Dialog dialog = new Dialog(getActivity(), getTheme()) {
             @Override
             public void onBackPressed() {
@@ -139,6 +141,7 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         if (popup == null) {
             dismiss();
         } else {
+            Log.d("팝업 프레그먼: ", "실행5 - false : "+popup.getType());
             switch (popup.getType()) {
                 case Popup.TYPE_ONE_BTN_NORMAL:
                 case Popup.TYPE_ONE_BTN_LARGE:
@@ -159,19 +162,24 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         }
 
         if (viewDataBinding != null) {
+            Log.d("팝업 프레그먼: ", "실행5 - dataBinding!");
             return viewDataBinding.getRoot();
         } else {
             //throw new NullPointerException("something wrong with dialog view");
             return null;
         }
+
+
     }
 
+    ///여기부터 진입 못함
     @Override
     public void onResume() {
-        LogHelper.e("onResume()");
         super.onResume();
         Window window = getDialog().getWindow();
+
         if (window != null && popup != null) {
+            Log.d("팝업 프레그먼: ", "OnResume");//no
             int dialogWidth = popup.getWidth();
             if (dialogWidth != 0) {
                 window.setLayout(dialogWidth, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -189,6 +197,8 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
                 setDialogPositionAboveStatusBar(window);
             }
         }
+
+
     }
 
     @Override
@@ -279,10 +289,11 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         return dialogTwoBtnBinding;
     }
 
+
+    //(loginActivity)관리자 암호 입력
     private ViewDataBinding getTwoBtnEditTextDialog() {
         setDialogAboveStatusBar();
-        dialogTwoBtnEditTextBinding = DataBindingUtil
-                .inflate(LayoutInflater.from(getContext()), R.layout.dialog_two_btn_edit_text, null, true);
+        dialogTwoBtnEditTextBinding = DataBindingUtil.inflate(LayoutInflater.from(getContext()), R.layout.dialog_two_btn_edit_text, null, true);
 
         // TODO: 2020-01-21 입력 글자수 처리 param 받아서 처리하게 변경 필요
         if (popup.isIntegerForEditText()) {
@@ -295,8 +306,7 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         }
 
         if (popup.isSecureTextType()) {
-            dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.setInputType(
-                    InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
+            dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);
         } else {
             if (popup.getTag().equals(Constants.DIALOG_TAG_CONFIG_CAR_NUM)) {
                 InputFilter[] filterArray = new InputFilter[1];
@@ -310,11 +320,11 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.setText(popup.getContent());
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextNegativeBtn.setText(popup.getLabelNegativeBtn());
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextPositiveBtn.setText(popup.getLabelPositiveBtn());
+
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextTitle.setOnClickListener(this);
+        dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.setSelection(dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.getText().length());
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextNegativeBtn.setOnClickListener(this);
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextPositiveBtn.setOnClickListener(this);
-        dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent
-                .setSelection(dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.getText().length());
 
         //가상 키보드에서 완료(done) 터치시 이벤트 감지 후 Positive 버튼 클릭 이벤트 처리
         dialogTwoBtnEditTextBinding.dialogTwoBtnEditTextContent.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -390,13 +400,13 @@ public class PopupDialogFragment extends DialogFragment implements View.OnClickL
     //statusBar 위에 그리기 (포지션이 아닌 허용 여부 설정)
     private void setDialogAboveStatusBar() {
         //LogHelper.e("setDialogAboveStatusBar() : " + getDialog().getWindow().getAttributes().toString());
-        WindowManager.LayoutParams windowLayoutParams = new WindowManager.LayoutParams(
+        /*WindowManager.LayoutParams windowLayoutParams = new WindowManager.LayoutParams(
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.TYPE_SYSTEM_ERROR,
                 WindowManager.LayoutParams.FLAG_LAYOUT_IN_SCREEN,
                 PixelFormat.TRANSLUCENT);
-        getDialog().getWindow().setAttributes(windowLayoutParams);
+        getDialog().getWindow().setAttributes(windowLayoutParams);*/
         //LogHelper.e("setDialogAboveStatusBar() : " + getDialog().getWindow().getAttributes().toString());
     }
 
